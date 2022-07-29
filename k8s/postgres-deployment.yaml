@@ -28,3 +28,9 @@ spec:
               mountPath: /var/lib/postgresql/data
               # subPath is directory in volumes defined earlier is section spec.volumes.name[]
               subPath: postgres
+          env:
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: pgpassword
+                  key: PGPASSWORD
